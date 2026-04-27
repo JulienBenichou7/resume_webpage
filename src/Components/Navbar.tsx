@@ -1,11 +1,28 @@
+import { useEffect, useState } from "react";
+
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  const links = ["About", "Experience", "Projects", "Contact"];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-8 py-5 flex items-center">
-      <a href="#hero" className="font-serif text-lg tracking-wide w-1/3">
-        YN
-      </a>
-      <ul className="flex gap-10 list-none justify-center w-1/3">
-        {["About", "Experience", "Projects", "Contact"].map((link) => (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 px-8 py-5 flex items-center ${scrolled ? "shadow-lg backdrop-blur-sm bg-opacity-80" : "bg-transparent"} transition-all duration-300`}
+    >
+      <ul className="flex gap-10 list-none justify-center w-full">
+        {links.map((link) => (
           <li key={link}>
             <a
               href={`#${link.toLowerCase()}`}
