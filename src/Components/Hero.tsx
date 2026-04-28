@@ -1,3 +1,5 @@
+import Link from "./Button";
+
 export default function Hero() {
   return (
     <section
@@ -14,21 +16,11 @@ export default function Hero() {
         learning. Passionate about building scalable, data-driven solutions and
         solving complex problems that deliver real business impact.
       </p>
-
       <div className="flex gap-4">
-        <a
-          href="#contact"
-          className="border border-amber-700 text-amber-700 px-6 py-3 rounded-full hover:bg-amber-700 hover:text-white transition-colors"
-        >
-          Contact Me
-        </a>
-        <a
-          href="/CV-JulienB.pdf"
-          target="_blank"
-          className="border border-amber-700 text-amber-700 px-6 py-3 rounded-full hover:bg-amber-700 hover:text-white transition-colors"
-        >
+        <Link href="#contact">Contact Me</Link>
+        <Link href="/CV-JulienB.pdf" target="_blank">
           View Resume
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 px-8 py-5 flex items-center ${scrolled ? "shadow-lg backdrop-blur-sm bg-opacity-80" : "bg-transparent"} transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-50 px-8 py-5 flex items-center ${scrolled && "bg-bg/90"} transition-all duration-300`}
     >
       <ul className="flex gap-10 list-none justify-center w-full">
         {links.map((link) => (
